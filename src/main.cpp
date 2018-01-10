@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x");
+uint256 hashGenesisBlock("0xe5b109caed62662666f24bace09d755e1da467bba3e7e3214b0962e02fae4518");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Litecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2746,7 +2746,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc3;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x");
+        hashGenesisBlock = uint256("0xe5b109caed62662666f24bace09d755e1da467bba3e7e3214b0962e02fae4518");
     }
 
     //
@@ -2772,12 +2772,12 @@ bool InitBlockIndex() {
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
         // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
-
+        // CBlock(hash=e5b109caed62662666f24bace09d755e1da467bba3e7e3214b0962e02fae4518, input=010000000000000000000000000000000000000000000000000000000000000000000000d40d628916193850c9ba6e697a52d8fa4c775f71f1399deb92214456f81440f5b9aa8e4ef0ff0f1ec7931a00, PoW=0000025f48574ea2878fd7a737148f74b8b6f53a205941e093e4315232664fb7, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=f54014f856442192eb9d39f1715f774cfad8527a696ebac95038191689620dd4, nTime=1317972665, nBits=1e0ffff0, nNonce=1741767, vtx=1)
+        //2018-01-10 17:10:21   CTransaction(hash=f54014f856442192eb9d39f1715f774cfad8527a696ebac95038191689620dd4, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+        //CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d01044c644e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536207c5265626f6f74206279204a65737365204a75736f6c692031302f6a616e2f32303138)
+        //CTxOut(nValue=50.00000000, scriptPubKey=2018040184710fa689ad5023690c80)
+        //vMerkleTree: f54014f856442192eb9d39f1715f774cfad8527a696ebac95038191689620dd4 
+       
         // Genesis block
         const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56 |Reboot by Jesse Jusoli 10/jan/2018";
         CTransaction txNew;
@@ -2793,12 +2793,12 @@ bool InitBlockIndex() {
         block.nVersion = 1;
         block.nTime    = 1317972665;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 0;
+        block.nNonce   = 1741767;
 
         if (fTestNet)
         {
             block.nTime    = 1317798646;
-            block.nNonce   = 0;
+            block.nNonce   = 1741767;
         }
 
         //// debug print
